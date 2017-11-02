@@ -10,7 +10,7 @@ namespace RangHo.XDLang.Model
 
         public int[] DataStructure { get; private set; }
 
-        public int Pointer { get; private set; }
+        public int Index { get; private set; }
 
         /// <summary>
         /// Creates a container with predefined size.
@@ -46,22 +46,28 @@ namespace RangHo.XDLang.Model
         /// Gets the value of current position.
         /// </summary>
         /// <returns>Integer value in current location</returns>
-        public int GetValue() => this[Pointer];
+        public int GetValue() => this[this.Index];
 
         /// <summary>
         /// Gets the value of current location as char.
         /// </summary>
         /// <returns>Character Value in current location</returns>
-        public char GetValueAsChar() => (char)this[Pointer];
+        public char GetValueAsChar() => (char)this[this.Index];
 
         /// <summary>
-        /// Moves the pointer to the right once.
+        /// Moves the index to the right once.
         /// </summary>
-        public void MoveRight() => this.Pointer++;
+        public void MoveRight() => this.Index++;
 
         /// <summary>
-        /// Moves the pointer to the right once.
+        /// Moves the index to the right once.
         /// </summary>
-        public void MoveLeft() => this.Pointer--;
+        public void MoveLeft() => this.Index--;
+
+        /// <summary>
+        /// Moves the index to specific location.
+        /// </summary>
+        /// <param name="index">New location of the index</param>
+        public void Move(int index) => this.Index = index;
     }
 }
